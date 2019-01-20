@@ -125,6 +125,8 @@ class Chain(object):
         raise Exception("no pool chosen, problem with probabilities?")
 
     def fork(self, name, pools):
+        # Reset the block time elapsed data also for the mainnet
+        self.block_time_elapsed_data = []
         # forks the chain at current state and continues with new pools and resets the block time data
         return Chain(name, [x for x in pools], parent_chain_blocks=[x for x in self.blocks],
             chain_score_fn=self.chain_score_fn, last_block_mined_at=self.last_block_mined_at,
