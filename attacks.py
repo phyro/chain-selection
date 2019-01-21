@@ -3,7 +3,8 @@ from collections import namedtuple
 
 from chain import Pool
 
-AttackSetting = namedtuple('AttackSetting', ['name', 'pools'])
+AttackSetting = namedtuple('AttackSetting', ['name', 'pools', 'abbreviation'])
+
 
 # Hash renting
 hash_rent_11 = AttackSetting(
@@ -11,6 +12,7 @@ hash_rent_11 = AttackSetting(
     pools=[
         Pool('nh_pool1', 120)
     ],
+    abbreviation='HashRent11'
 )
 
 hash_rent_8 = AttackSetting(
@@ -18,6 +20,7 @@ hash_rent_8 = AttackSetting(
     pools=[
         Pool('nh_pool1', 140)
     ],
+    abbreviation='HashRent8.5'
 )
 
 # ETC pools
@@ -26,6 +29,7 @@ mining_pool_ethermine = AttackSetting(
     pools=[
         Pool('EtherMine', 40)
     ],
+    abbreviation='EM40%'
 )
 
 mining_pool_ethermine_and_hashrent = AttackSetting(
@@ -34,6 +38,7 @@ mining_pool_ethermine_and_hashrent = AttackSetting(
         Pool('EtherMine', 40),
         Pool('nh_pool4', 30),
     ],
+    abbreviation='EM40% HashRent30'
 )
 
 mining_pool_ethermine_nanopool = AttackSetting(
@@ -42,12 +47,14 @@ mining_pool_ethermine_nanopool = AttackSetting(
         Pool('EtherMine', 40),
         Pool('Nanopool', 21),
     ],
+    abbreviation='EM40 NP21'
 )
 
 # Protocol level pools assumed
 mining_pool_40_incentivized = AttackSetting(
     'Mining pool 40% - incentivized',
     pools=[Pool('pool{}'.format(i), 4) for i in range(1, 11)],
+    abbreviation='Pool40-inc'
 )
 mining_pool_40_and_hashrent_incentivized = AttackSetting(
     'Mining pool 40% and hashrent - incentivized',
@@ -55,6 +62,9 @@ mining_pool_40_and_hashrent_incentivized = AttackSetting(
         Pool('pool{}'.format(i), 4) for i in range(1, 11),
         Pool('nh_pool11', 20)
     ],
+    abbreviation='Pool40 Hashrent11 - inc'
 )
+
+
 
 # TODO: add a miner to the mining pool

@@ -41,7 +41,7 @@ class Chain(object):
 
     @property
     def score(self):
-        return self.chain_score_fn(self.blocks, self.name)
+        return self.chain_score_fn(self.blocks)
 
     def block_score(self, N):
         return self.blocks[N - 1].total_score - self.blocks[N - 2].total_score
@@ -143,7 +143,7 @@ class Chain(object):
     def score_over_time(self):
         # prints average block score over a few ranges of blocks
         block_ranges = [(1, 10), (10, 20), (20, 40), (40, 80), (80, 120), (120, 150),
-                        (150, 200), (200, 250), (250, 300), (300, 350)]#, (350, 800), (800, 1200), (1200, 1600), (1600, 2000)]
+                        (150, 200), (200, 250), (250, 300), (300, 350), (350, 800), (800, 1200), (1200, 1600), (1600, 2000)]
         height_ = self.height
         for start, end in block_ranges:
             scores = []

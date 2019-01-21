@@ -1,3 +1,3 @@
 
-def chain_score(blocks, name):
+def chain_score(blocks):
     return sum(block.pow for block in blocks)
