@@ -1,13 +1,13 @@
 
-from attacks import nice_hash_10
-from attacks import nice_hash_12
+from attacks import hash_rent_8
+from attacks import hash_rent_11
 
 from attacks import mining_pool_ethermine
-from attacks import mining_pool_ethermine_and_nicehash
+from attacks import mining_pool_ethermine_and_hashrent
 from attacks import mining_pool_ethermine_nanopool
 
 from attacks import mining_pool_40_incentivized
-from attacks import mining_pool_40_and_nicehash_incentivized
+from attacks import mining_pool_40_and_hashrent_incentivized
 
 from chain import Pool
 from chain import Chain
@@ -19,14 +19,14 @@ from utils import print_winner
 
 def run_attacks(chain_rule, algo_name, pools, expected_blocks, fork_block):
     attack_settings = [
-        nice_hash_12,
-        nice_hash_10,
+        hash_rent_11,
+        hash_rent_8,
         mining_pool_ethermine,
-        mining_pool_ethermine_and_nicehash,
+        mining_pool_ethermine_and_hashrent,
         mining_pool_ethermine_nanopool
         # protocol incentivized
         # mining_pool_40_incentivized,
-        # mining_pool_40_and_nicehash_incentivized
+        # mining_pool_40_and_hashrent_incentivized
 
     ]
     total_seconds = expected_blocks * 14

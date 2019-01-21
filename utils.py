@@ -18,8 +18,8 @@ def print_winner(algo_name, chains, expected_blocks, fork_block):
     fork_work_mainnet = get_work_from_block(chains[0], fork_block)
     fork_work_attacker = get_work_from_block(chains[1], fork_block)
     print "\n Work done since fork block:"
-    print " Mainnet: {}".format(fork_work_mainnet)
-    print " {}: {}".format(chains[1].name, fork_work_attacker)
+    print " Mainnet score: {}, height: {}".format(fork_work_mainnet, chains[0].height)
+    print " {} score: {}, height: {}".format(chains[1].name, fork_work_attacker, chains[1].height)
     print " Ratio: {}".format(fork_work_mainnet / float(fork_work_attacker))
     print "-----------------------------------------------------"
     print "\nWinner: {}\n".format(sorted_chains[0])

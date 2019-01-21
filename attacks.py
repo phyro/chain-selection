@@ -5,16 +5,16 @@ from chain import Pool
 
 AttackSetting = namedtuple('AttackSetting', ['name', 'pools'])
 
-# Nice hash
-nice_hash_12 = AttackSetting(
-    'NiceHash 11 seconds block time',
+# Hash renting
+hash_rent_11 = AttackSetting(
+    'HashRent 11 seconds block time',
     pools=[
         Pool('nh_pool1', 120)
     ],
 )
 
-nice_hash_10 = AttackSetting(
-    'NiceHash 8.5 seconds block time',
+hash_rent_8 = AttackSetting(
+    'HashRent 8.5 seconds block time',
     pools=[
         Pool('nh_pool1', 140)
     ],
@@ -28,8 +28,8 @@ mining_pool_ethermine = AttackSetting(
     ],
 )
 
-mining_pool_ethermine_and_nicehash = AttackSetting(
-    'Mining pool EtherMine 40% + Nicehash 30%',
+mining_pool_ethermine_and_hashrent = AttackSetting(
+    'Mining pool EtherMine 40% + HashRent 30%',
     pools=[
         Pool('EtherMine', 40),
         Pool('nh_pool4', 30),
@@ -49,8 +49,8 @@ mining_pool_40_incentivized = AttackSetting(
     'Mining pool 40% - incentivized',
     pools=[Pool('pool{}'.format(i), 4) for i in range(1, 11)],
 )
-mining_pool_40_and_nicehash_incentivized = AttackSetting(
-    'Mining pool 40% and nicehash - incentivized',
+mining_pool_40_and_hashrent_incentivized = AttackSetting(
+    'Mining pool 40% and hashrent - incentivized',
     pools=[
         Pool('pool{}'.format(i), 4) for i in range(1, 11),
         Pool('nh_pool11', 20)
