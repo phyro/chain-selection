@@ -32,6 +32,14 @@ mining_pool_ethermine = AttackSetting(
     abbreviation='EM40%'
 )
 
+mining_pool_ethermine70 = AttackSetting(
+    'Ethermine 70%',
+    pools=[
+        Pool('EtherMine', 70)
+    ],
+    abbreviation='EM70%'
+)
+
 mining_pool_ethermine_and_hashrent = AttackSetting(
     'Mining pool EtherMine 40% + HashRent 30%',
     pools=[

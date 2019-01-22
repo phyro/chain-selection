@@ -2,6 +2,8 @@
 from collections import defaultdict
 
 # Sliding-window-miners-consistency delta
+# The idea is that this version also penalizes the miner/pools
+# if they start mining faster than they used to.
 
 def chain_score(blocks, name):
   new_block = blocks[-1]  # This is the mined block

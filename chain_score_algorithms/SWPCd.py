@@ -6,8 +6,9 @@ from collections import defaultdict
 def chain_score(blocks):
   new_block = blocks[-1]  # This is the mined block
   prev_blocks = blocks[:-1]
-  # Calculate the pool consistency of the network
-  adjusted_pow_score = PCI(blocks) * new_block.pow
+  # Calculate the pool consistency of the network - the reason we don't allow
+  # to have 0 work is because we want to have progress at all times
+  adjusted_pow_score = max(new_block.pow / 10.0, PCI(blocks) * new_block.pow)
   previous_block = prev_blocks[-1]
   # The value of the block is a combination of work and pool consistency
   return previous_block.total_score + adjusted_pow_score

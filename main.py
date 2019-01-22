@@ -6,6 +6,7 @@ from attacks import hash_rent_8
 from attacks import hash_rent_11
 
 from attacks import mining_pool_ethermine
+from attacks import mining_pool_ethermine70
 from attacks import mining_pool_ethermine_and_hashrent
 from attacks import mining_pool_ethermine_nanopool
 
@@ -30,6 +31,7 @@ def run_attacks(algos, pools, expected_blocks, fork_block):
         hash_rent_11,
         hash_rent_8,
         mining_pool_ethermine,
+        mining_pool_ethermine70,
         mining_pool_ethermine_and_hashrent,
         mining_pool_ethermine_nanopool
         # protocol incentivized
