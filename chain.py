@@ -142,16 +142,19 @@ class Chain(object):
 
     def score_over_time(self):
         # prints average block score over a few ranges of blocks
-        block_ranges = [(1, 10), (10, 20), (20, 40), (40, 80), (80, 120), (120, 150),
-                        (150, 200), (200, 250), (250, 300), (300, 350), (350, 800), (800, 1200), (1200, 1600), (1600, 2000)]
+        block_ranges = [
+            (1, 10), (10, 20), (20, 40), (40, 80), (80, 120), (120, 150),
+            (150, 200), (200, 250), (250, 300), (300, 350), (350, 800),
+            (800, 1200), (1200, 1600), (1600, 2000)
+        ]
         height_ = self.height
         for start, end in block_ranges:
             scores = []
             for block in self.blocks[-end:-start]:
                 cur_score = self.block_score(block.height)
                 scores.append(cur_score)
-                # print "block: {}, block_score: {}".format(block.height, cur_score)
-            print "[{} -> {}], AVG block score: {}".format(height_ - start + 1, height_ - end + 1, sum(scores) / len(scores))
+            print "[{} -> {}], AVG block score: {}".format(
+                height_ - start + 1, height_ - end + 1, sum(scores) / len(scores))
     
     def __repr__(self):
         mini, maxi = self.get_min_max_block_time()

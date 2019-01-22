@@ -1,7 +1,4 @@
 
-
-
-
 def print_winner(algo_name, chains, expected_blocks, fork_block):
     def get_work_from_block(chain, N):
         length = len(chain.blocks) - N
@@ -52,7 +49,6 @@ def print_results(results, fork_block, expected_blocks):
     attacks = map(lambda x: x.attack, results[_random_algo_name])
     for attack in attacks:
         print "Abbreviation: {}, Name:{}".format(attack.abbreviation, attack.name)
-    # print '\t\t' + '\t\t'.join([attack.abbreviation for attack in attacks])
     row = '{:>18}' * (len(attacks) + 1)
     print row.format("", *[attack.abbreviation for attack in attacks])
     for algo_name, algo_results in results.items():
@@ -62,13 +58,7 @@ def print_results(results, fork_block, expected_blocks):
             attacker = result.attacker
             fork_work_mainnet = get_work_from_block(mainnet, fork_block)
             fork_work_attacker = get_work_from_block(attacker, fork_block)
-            # print " Mainnet score: {}, height: {}".format(get_work_from_block(mainnet, fork_block), mainnet.height)
-            # print " {} score: {}, height: {}".format(attacker.name, fork_work_attacker, chains[1].height)
-            # print " Ratio: {}".format(fork_work_mainnet / float(fork_work_attacker))
             ratio = fork_work_mainnet / float(fork_work_attacker)
             attack_results.append('%.2f' % ratio)
-        # print 'algo:{}\t'.format(algo_name) + '\t\t'.join(attack_results)
         print row.format(algo_name, *attack_results)
         print ''
-            
-        

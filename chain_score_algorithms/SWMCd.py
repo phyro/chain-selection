@@ -5,11 +5,11 @@ from collections import defaultdict
 # The idea is that this version also penalizes the miner/pools
 # if they start mining faster than they used to.
 
-def chain_score(blocks, name):
+def chain_score(blocks):
   new_block = blocks[-1]  # This is the mined block
   prev_blocks = blocks[:-1]
   # Calculate the pool consistency of the network
-  PCI = calc_PCI(blocks, name)
+  PCI = calc_PCI(blocks)
   # PCI regulates the amount of work done
   adjusted_pow_score = PCI * new_block.pow
   # CMS is Consistent Miner Bonus ratio - new miners don't get it. Value between 0 and 1
@@ -31,7 +31,7 @@ def calc_CMB_ratio(miner, prev_blocks):
   speed_penalty = speeding_ticket(miner, prev_blocks)
   return max(0.0, relative_mined - speed_penalty)
 
-def calc_PCI(blocks, name):
+def calc_PCI(blocks):
   # Checks if the miners from the past are still present
   # TODO: The measure should scale well with minority leaving (perhaps even account for the number of pools)
   miners_3000 = get_miners(blocks[-3000:])

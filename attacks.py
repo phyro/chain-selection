@@ -72,7 +72,3 @@ mining_pool_40_and_hashrent_incentivized = AttackSetting(
     ],
     abbreviation='Pool40 Hashrent11 - inc'
 )
-
-
-
-# TODO: add a miner to the mining pool
